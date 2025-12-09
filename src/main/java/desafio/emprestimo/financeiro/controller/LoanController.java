@@ -4,6 +4,7 @@ import desafio.emprestimo.financeiro.controller.dto.CustomerLoanRequest;
 import desafio.emprestimo.financeiro.controller.dto.CustomerLoanResponse;
 import desafio.emprestimo.financeiro.controller.dto.LoanResponse;
 import desafio.emprestimo.financeiro.service.LoanService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class LoanController {
     }
 
     @PostMapping(value = "/customer-loans")
-    public ResponseEntity<CustomerLoanResponse> customerLoans(@RequestBody CustomerLoanRequest loansRequest) {
+    public ResponseEntity<CustomerLoanResponse> customerLoans(@RequestBody @Valid CustomerLoanRequest loansRequest) {
 
         var loanResponse = loanService.checkLoanAvailability(loansRequest);
 
