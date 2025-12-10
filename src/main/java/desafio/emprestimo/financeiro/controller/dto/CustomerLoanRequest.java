@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.br.CPF;
 public record CustomerLoanRequest(@Min(value = 18) @NotNull Integer age,
                                   @CPF String cpf,
                                   @NotBlank String name,
-                                  @Min(value = 10000)@NotNull Double income,
+                                  @Min(value = 1000)@NotNull Double income,
                                   @NotBlank String location) {
 
     public Customer toCustomer() {
